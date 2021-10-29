@@ -110,7 +110,27 @@ export class DocumentCloner {
             }
 
             if (documentClone.fonts && documentClone.fonts.ready) {
-                await documentClone.fonts.ready;
+                let fontReadyTimer: ReturnType<typeof setTimeout>;
+                let pollCnt = 0;
+                await new Promise((resolve, reject) => {
+                    document.fonts.ready
+                        .then(() => {
+                            resolve(null);
+                            clearTimeout(fontReadyTimer);
+                        })
+                        .catch(() => {
+                            reject();
+                            clearTimeout(fontReadyTimer);
+                        });
+                    const poll = () => {
+                        if (document.fonts.status === 'loaded' || pollCnt === 10) resolve(null);
+                        else {
+                            pollCnt++;
+                            fontReadyTimer = setTimeout(poll, 1000);
+                        }
+                    };
+                    poll();
+                });
             }
 
             if (/(AppleWebKit)/g.test(navigator.userAgent)) {
