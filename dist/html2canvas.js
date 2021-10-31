@@ -6466,7 +6466,7 @@
 
     var SMALL_IMAGE = 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7';
 
-    var SAMPLE_TEXT = 'Hidden Text';
+    var SAMPLE_TEXT = 'H';
     var FontMetrics = /** @class */ (function () {
         function FontMetrics(document) {
             this._data = {};

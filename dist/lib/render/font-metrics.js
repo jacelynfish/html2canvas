@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.FontMetrics = void 0;
 var util_1 = require("../core/util");
-var SAMPLE_TEXT = 'Hidden Text';
+var SAMPLE_TEXT = 'H';
 var FontMetrics = /** @class */ (function () {
     function FontMetrics(document) {
         this._data = {};

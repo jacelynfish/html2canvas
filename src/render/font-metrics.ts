@@ -4,7 +4,7 @@ export interface FontMetric {
     middle: number;
 }
 
-const SAMPLE_TEXT = 'Hidden Text';
+const SAMPLE_TEXT = 'H';
 
 export class FontMetrics {
     private readonly _data: {[key: string]: FontMetric};
